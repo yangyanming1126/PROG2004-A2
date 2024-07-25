@@ -27,3 +27,4 @@ public class Visitor extends Person{
         this.hasVIPAccess = hasVIPAccess;
     }
 }
+//arraylist <Visitor> apps = new arraylist 用类似这个样的写法写这个class
