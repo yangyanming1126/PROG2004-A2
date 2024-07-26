@@ -1,7 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-
 public class Ride implements RideInterface {
     private String name;
     private int capacity;
@@ -9,7 +8,7 @@ public class Ride implements RideInterface {
     private Queue<Visitor> visitorQueue;
     private LinkedList<Visitor> rideHistory;
 
-    public Ride(){
+    public Ride() {
         visitorQueue = new LinkedList<>();
         rideHistory = new LinkedList<>();
     }
@@ -22,7 +21,7 @@ public class Ride implements RideInterface {
         this.rideHistory = new LinkedList<>();
     }
 
-    public  String getName() {
+    public String getName() {
         return name;
     }
 
@@ -45,6 +44,7 @@ public class Ride implements RideInterface {
     public void setOperator(Employee operator) {
         this.operator = operator;
     }
+
     public void assignOperator(Employee operator) {
         this.operator = operator;
         System.out.println("Operator " + operator.getName() + " has been assigned to the ride " + this.name);
