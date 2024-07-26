@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -94,9 +95,33 @@ public class Ride implements RideInterface {
     @Override
     public void printRideHistory() {
         System.out.println("Visitors who have taken the ride:");
-        for (Visitor visitor : rideHistory) {
+        Iterator<Visitor> iterator = rideHistory.iterator();
+        while (iterator.hasNext()) {
+            Visitor visitor = iterator.next();
             System.out.println(visitor.getName());
         }
+    }
+
+    // 新增的方法
+    public void addVisitorToHistory(Visitor visitor) {
+        rideHistory.add(visitor);
+        System.out.println("Visitor " + visitor.getName() + " has been added to the ride history.");
+    }
+
+    public boolean isVisitorInHistory(Visitor visitor) {
+        boolean exists = rideHistory.contains(visitor);
+        if (exists) {
+            System.out.println("Visitor " + visitor.getName() + " is in the ride history.");
+        } else {
+            System.out.println("Visitor " + visitor.getName() + " is not in the ride history.");
+        }
+        return exists;
+    }
+
+    public int getNumberOfVisitorsInHistory() {
+        int count = rideHistory.size();
+        System.out.println("There are " + count + " visitors in the ride history.");
+        return count;
     }
 }
 
