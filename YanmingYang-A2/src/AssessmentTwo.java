@@ -28,6 +28,30 @@ public class AssessmentTwo {
     }
 
     public void partFourA(){
+        Ride thunderstorm = new Ride("Thunderstorm", 4, null);
+
+        // 创建一些Visitor对象
+        Visitor visitor1 = new Visitor("Tom", 25, "123 Street", "Regular", false);
+        Visitor visitor2 = new Visitor("Sherly", 30, "456 Avenue", "Regular", false);
+        Visitor visitor3 = new Visitor("Ben", 22, "789 Boulevard", "Regular", false);
+        Visitor visitor4 = new Visitor("David", 28, "101 Road", "VIP", true);
+        Visitor visitor5 = new Visitor("Jack", 35, "202 Lane", "Regular", false);
+
+        // 添加Visitor到ride history
+        thunderstorm.addVisitorToHistory(visitor1);
+        thunderstorm.addVisitorToHistory(visitor2);
+        thunderstorm.addVisitorToHistory(visitor3);
+        thunderstorm.addVisitorToHistory(visitor4);
+        thunderstorm.addVisitorToHistory(visitor5);
+
+        // 检查某个Visitor是否在ride history中
+        thunderstorm.isVisitorInHistory(visitor1);
+
+        // 打印ride history中的游客数量
+        thunderstorm.getNumberOfVisitorsInHistory();
+
+        // 打印ride history中的所有游客
+        thunderstorm.printRideHistory();
     }
 
     public void partFourB(){
@@ -42,4 +66,3 @@ public class AssessmentTwo {
     public void partSeven(){
     }
 }
-
