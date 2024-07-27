@@ -9,10 +9,14 @@ public class Ride implements RideInterface {
     private Employee operator;
     private Queue<Visitor> visitorQueue;
     private LinkedList<Visitor> rideHistory;
+    private int maxRider; // 每个周期最多可以容纳的游客数
+    private int numOfCycles; // 游乐设施运行的次数
 
     public Ride() {
         visitorQueue = new LinkedList<>();
         rideHistory = new LinkedList<>();
+        maxRider = 1; // 默认值
+        numOfCycles = 0; // 初始值
     }
 
     public Ride(String name, int capacity, Employee operator) {
@@ -21,6 +25,8 @@ public class Ride implements RideInterface {
         this.operator = operator;
         this.visitorQueue = new LinkedList<>();
         this.rideHistory = new LinkedList<>();
+        this.maxRider = capacity;
+        this.numOfCycles = 0;
     }
 
     public String getName() {
@@ -85,12 +91,14 @@ public class Ride implements RideInterface {
             System.out.println("No visitors in the queue. Cannot run the ride.");
             return;
         }
-        int riders = Math.min(capacity, visitorQueue.size());
+        int riders = Math.min(maxRider, visitorQueue.size());
         System.out.println("Running one cycle with " + riders + " visitors.");
         for (int i = 0; i < riders; i++) {
             Visitor visitor = visitorQueue.poll();
             rideHistory.add(visitor);
         }
+        numOfCycles++;
+        System.out.println("The ride has completed " + numOfCycles + " cycles.");
     }
 
     @Override
@@ -103,7 +111,6 @@ public class Ride implements RideInterface {
         }
     }
 
-    // 新增的方法
     public void addVisitorToHistory(Visitor visitor) {
         rideHistory.add(visitor);
         System.out.println("Visitor " + visitor.getName() + " has been added to the ride history.");
@@ -125,10 +132,8 @@ public class Ride implements RideInterface {
         return count;
     }
 
-    // 新增的方法：排序集合
     public void sortRideHistory() {
         Collections.sort(rideHistory, new VisitorComparator());
         System.out.println("Ride history has been sorted.");
     }
 }
-
