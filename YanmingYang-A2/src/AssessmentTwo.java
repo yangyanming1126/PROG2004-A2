@@ -55,6 +55,32 @@ public class AssessmentTwo {
     }
 
     public void partFourB(){
+        Ride thunderstorm = new Ride("Thunderstorm", 4, null);
+
+        // 创建一些Visitor对象
+        Visitor visitor1 = new Visitor("Tom", 25, "123 Street", "Regular", false);
+        Visitor visitor2 = new Visitor("Sherly", 30, "456 Avenue", "Regular", false);
+        Visitor visitor3 = new Visitor("Ben", 22, "789 Boulevard", "Regular", false);
+        Visitor visitor4 = new Visitor("David", 28, "101 Road", "VIP", true);
+        Visitor visitor5 = new Visitor("Jack", 35, "202 Lane", "Regular", false);
+
+        // 添加Visitor到ride history
+        thunderstorm.addVisitorToHistory(visitor1);
+        thunderstorm.addVisitorToHistory(visitor2);
+        thunderstorm.addVisitorToHistory(visitor3);
+        thunderstorm.addVisitorToHistory(visitor4);
+        thunderstorm.addVisitorToHistory(visitor5);
+
+        // 打印排序前的ride history
+        System.out.println("Before sorting:");
+        thunderstorm.printRideHistory();
+
+        // 对ride history进行排序
+        thunderstorm.sortRideHistory();
+
+        // 打印排序后的ride history
+        System.out.println("After sorting:");
+        thunderstorm.printRideHistory();
     }
 
     public void partFive(){
