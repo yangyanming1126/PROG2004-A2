@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -135,5 +138,19 @@ public class Ride implements RideInterface {
     public void sortRideHistory() {
         Collections.sort(rideHistory, new VisitorComparator());
         System.out.println("Ride history has been sorted.");
+    }
+
+    // 新增的方法：将所有游客详细信息写入文件
+    public void exportVisitorsToFile(String filename) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (Visitor visitor : rideHistory) {
+                writer.write(visitor.getName() + "," + visitor.getAge() + "," + visitor.getAddress() + "," +
+                        visitor.getTicketType() + "," + visitor.isHasVIPAccess());
+                writer.newLine();
+            }
+            System.out.println("Visitor details have been exported to " + filename);
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file: " + e.getMessage());
+        }
     }
 }
