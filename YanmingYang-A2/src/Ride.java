@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -122,6 +123,12 @@ public class Ride implements RideInterface {
         int count = rideHistory.size();
         System.out.println("There are " + count + " visitors in the ride history.");
         return count;
+    }
+
+    // 新增的方法：排序集合
+    public void sortRideHistory() {
+        Collections.sort(rideHistory, new VisitorComparator());
+        System.out.println("Ride history has been sorted.");
     }
 }
 
