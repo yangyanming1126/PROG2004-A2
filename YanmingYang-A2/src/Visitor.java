@@ -1,5 +1,8 @@
+/**
+ * tourists
+ */
 public class Visitor extends Person{
-    private String ticketType;
+    private String ticketType;//Ticket type
     private boolean hasVIPAccess;
 
     public Visitor() {
@@ -26,5 +29,14 @@ public class Visitor extends Person{
     public void setHasVIPAccess(boolean hasVIPAccess) {
         this.hasVIPAccess = hasVIPAccess;
     }
+
+    @Override
+    public String toString() {
+        return "Visitor{" +
+                "person='" + super.toString() + '\'' +','+
+                "ticketType='" + ticketType + '\'' +
+                ", hasVIPAccess=" + hasVIPAccess +
+                '}';
+    }
 }
-//arraylist <Visitor> apps = new arraylist 用类似这个样的写法写这个class
+//arraylist <Visitor> apps = new arraylist
