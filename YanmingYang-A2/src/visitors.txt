@@ -1,0 +1,5 @@
+Tom,25,123 Street,Regular,false
+Sherly,30,456 Avenue,Regular,false
+Ben,22,789 Boulevard,Regular,false
+David,28,101 Road,VIP,true
+Jack,35,202 Lane,Regular,false
