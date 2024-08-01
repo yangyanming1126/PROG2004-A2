@@ -1,4 +1,7 @@
 public class Employee extends Person {
+    /**
+     * job
+     */
     private String position;
     private double salary;
 
